@@ -1,0 +1,163 @@
+/* Login.module.css */
+
+.page {
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at top center,
+    #4a0a0a 0%,
+    #2a0505 30%,
+    #0d0000 70%,
+    #000000 100%
+  );
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo img {
+  height: 70px;
+  margin-left: 87px;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #a0a0a0;
+  margin: 0 0 28px 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.inputWrapper {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1.5px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 18px 16px;
+  font-size: 1rem;
+  color: #e5e5e5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #7a7a7a;
+}
+
+.input:focus {
+  border-color: #757575;
+  background: #1e1e1e;
+}
+
+.submitBtn {
+  width: 100%;
+  background: #e50914;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 18px 16px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition:
+    background 0.18s ease,
+    transform 0.1s ease;
+}
+
+.submitBtn:hover {
+  background: #f40612;
+}
+
+.submitBtn:active {
+  background: #c40811;
+  transform: scale(0.99);
+}
+
+.helpRow {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #e5e5e5;
+  font-size: 0.95rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  user-select: none;
+}
+
+.helpRow:hover {
+  text-decoration: underline;
+}
+
+.helpChevron {
+  font-size: 0.75rem;
+  margin-top: 1px;
+}
+
+.recaptcha {
+  margin-top: 28px;
+  font-size: 0.78rem;
+  color: #6a6a6a;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-width: 380px;
+  line-height: 1.5;
+}
+
+.errorMsg {
+  width: 100%;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  border-radius: 5px;
+  color: #ff6b6b;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  text-align: left;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("https://upload.wikimedia.org/wikipedia/ms/2/2b/Cun.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 5;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.heroContent h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.heroContent h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.inputContainer input {
+  width: 350px;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1rem;
+}
+
+.inputContainer button {
+  background-color: #e50914;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.inputContainer button a{
+color: white;
+text-decoration: none;
+}
+
+/* ── Mobile portrait (up to 480px) ── */
+@media (min-width: 480px) and (max-width: 1024px) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .heroContent h1 {
+    font-size: 3rem;        /* desktop is 4rem — slightly smaller on tablet */
+  }
+
+  .heroContent h3 {
+    font-size: 1.3rem;
+  }
+
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+
+  .inputContainer {
+    flex-direction: row;    /* keep side by side on tablet */
+    gap: 0.5rem;
+  }
+
+  .inputContainer input {
+    width: 280px;           /* slightly narrower than desktop 350px */
+  }
+
+  .inputContainer button {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+}

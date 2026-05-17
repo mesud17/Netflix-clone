@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import styles from "./Login.module.css";
+import logo from "../../assets/images/Netflix-logo.png"
 
 const Login = () => {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -21,28 +23,50 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+    <div className={styles.page}>
+      {/* Header */}
+      <header className={styles.header}>
+        <div className={styles.logo}><img src={logo} alt="netflix logo" /></div>
+      </header>
+      {/* Main */}
+      <main className={styles.main}>
+        <div className={styles.card}>
+          <h1 className={styles.title}>Enter your info to sign in</h1>
+          <p className={styles.subtitle}>Or get started with a new account.</p>
+          {error && <p className={styles.errorMsg}>{error}</p>}
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.inputWrapper}>
+              <input
+                className={styles.input}
+                type="email"
+                placeholder="Email or mobile number"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.inputWrapper}>
+              <input
+                className={styles.input}
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <button className={styles.submitBtn} type="submit">
+              Continue
+            </button>
+          </form>
+          <div className={styles.helpRow}>
+            Get Help <span className={styles.helpChevron}>&#8964;</span>
+          </div>
+
+          <p className={styles.recaptcha}>
+            This page is protected by Google reCAPTCHA to ensure you're not a bot.
+          </p>
         </div>
-        <div>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      </main>
     </div>
   );
 };

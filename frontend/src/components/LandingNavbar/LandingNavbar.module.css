@@ -1,0 +1,46 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo img {
+  height: 80px;
+  margin-left: 82px;
+}
+
+.signInBtn {
+  background-color: #e50914;
+  color: white;
+  margin-right: 63px;
+  margin-top: -10px;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Mobile landscape only ── */
+/* min-width catches landscape (wider), max-height catches it's still a small phone */
+@media (max-width: 481px) {
+  .navbar {
+    padding: 6px 0;        /* less vertical padding — screen is short */
+  }
+
+  .logo img {
+    height: 30px;          /* smaller logo — less vertical space */
+    margin-left: 20px;     /* tighter left margin */
+  }
+
+  .signInBtn {
+    margin-right: 20px;    /* tighter right margin */
+    font-size: 0.85rem;    /* slightly smaller text */
+    padding: 6px 10px;     /* smaller button */
+  }
+}

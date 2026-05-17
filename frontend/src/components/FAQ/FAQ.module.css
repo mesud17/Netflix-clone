@@ -1,0 +1,87 @@
+.section {
+  background: #000;
+  padding: 40px 40px 60px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item {
+  background: #2d2d2d;
+}
+
+/* question row — full-width button */
+.question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  background: #2d2d2d;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid #000;
+  transition: background 0.2s;
+}
+
+.question:hover {
+  background: #3d3d3d;
+}
+
+/* + icon that rotates to × when open */
+.icon {
+  font-size: 30px;
+  font-weight: 300;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+/* answer panel */
+.answer {
+  padding: 18px 20px;
+  background: #2d2d2d;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.6;
+  border-top: 2px solid #000;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 30px 20px 40px;
+  }
+
+  .question {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  .answer {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+}
