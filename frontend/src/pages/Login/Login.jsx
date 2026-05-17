@@ -23,9 +23,7 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-
       {error && <p>{error}</p>}
-
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -35,7 +33,6 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-
         <div>
           <input
             type="password"
@@ -44,7 +41,6 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
         <button type="submit">Login</button>
       </form>
     </div>
