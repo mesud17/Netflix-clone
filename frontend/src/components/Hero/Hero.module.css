@@ -2,13 +2,13 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-image: url("https://upload.wikimedia.org/wikipedia/ms/2/2b/Cun.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  transition: background-image 1s ease-in-out;
 }
 
 .overlay {

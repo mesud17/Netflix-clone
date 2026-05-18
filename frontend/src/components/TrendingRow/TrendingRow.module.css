@@ -1,0 +1,115 @@
+.trendingSection {
+  width: 100%;
+  background: #000;
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.curve {
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 110%;
+  height: 120px;
+  border-top: 3px solid #ff003c;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(14, 25, 120, 0.8) 0%,
+    #000 70%
+  );
+}
+
+.content {
+  width: 85%;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.content h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.sliderWrapper {
+  position: relative;
+}
+
+.row {
+  display: flex;
+  gap: 35px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  padding: 20px 40px;
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 180px;
+  height: 270px;
+  border-radius: 16px;
+  overflow: visible;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.number {
+  position: absolute;
+  left: -35px;
+  bottom: 10px;
+  font-size: 7rem;
+  font-weight: 900;
+  color: black;
+  -webkit-text-stroke: 2px white;
+  z-index: 5;
+  line-height: 1;
+}
+
+.scrollBtn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 35px;
+  height: 130px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: rgba(45, 44, 44, 0.12);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.scrollBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

@@ -1,20 +1,12 @@
-import styles from "./Hero.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import LandingNavbar from "../LandingNavbar/LandingNavbar";
-import { useNavigate } from "react-router-dom";
+import styles from "./Hero.module.css";
 
-const HeroSection = () => {
+const Hero = () => {
   const [movies, setMovies] = useState([]);
   const [currentMovie, setCurrentMovie] = useState(0);
-  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate('/register');
-  };
-
+  // fetch movies
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -33,6 +25,7 @@ const HeroSection = () => {
     fetchMovies();
   }, []);
 
+  // auto background slider
   useEffect(() => {
     if (movies.length === 0) return;
 
@@ -49,38 +42,30 @@ const HeroSection = () => {
     <section
       className={styles.hero}
       style={{
-        backgroundImage: movies[currentMovie]
-          ? `linear-gradient(to bottom,
-              rgba(0,0,0,0.55) 0%,
-              rgba(0,0,0,0.20) 40%,
-              rgba(0,0,0,0.75) 80%,
-              #000 100%),
-            url(https://image.tmdb.org/t/p/original${movies[currentMovie]?.backdrop_path})`
-          : undefined
+        backgroundImage: `url(
+          https://image.tmdb.org/t/p/original${
+            movies[currentMovie]?.backdrop_path
+          }
+        )`,
       }}
     >
       <div className={styles.overlay}></div>
-
-      <LandingNavbar />
-
       <div className={styles.heroContent}>
-        <h1>
-          Unlimited movies, TV
-          <br />
-          shows, and more
-        </h1>
+        <h1>Unlimited movies, TV shows, and more</h1>
         <h3>Starts at USD 2.99. Cancel anytime.</h3>
-
-        <p>Ready to watch?</p>
+        <p>
+          Ready to watch? Enter your email to create or restart your
+          membership.
+        </p>
 
         <div className={styles.inputContainer}>
-          <button type="submit" onClick={handleSubmit}>
-            <Link to="/register">Get Started</Link>
-          </button>
+          <input type="email" placeholder="Email address" />
+
+          <button>Get Started</button>
         </div>
       </div>
     </section>
   );
 };
 
-export default HeroSection;
+export default Hero;
