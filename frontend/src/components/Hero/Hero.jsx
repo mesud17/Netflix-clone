@@ -23,16 +23,13 @@ const HeroSection = () => {
             import.meta.env.VITE_TMDB_API_KEY
           }`
         );
-
         setMovies(res.data.results.slice(0, 10));
       } catch (error) {
         console.log(error);
       }
     };
-
     fetchMovies();
   }, []);
-
   useEffect(() => {
     if (movies.length === 0) return;
 
@@ -41,10 +38,8 @@ const HeroSection = () => {
         prev === movies.length - 1 ? 0 : prev + 1
       );
     }, 5000);
-
     return () => clearInterval(interval);
   }, [movies]);
-
   return (
     <section
       className={styles.hero}
