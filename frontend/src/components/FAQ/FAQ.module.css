@@ -1,44 +1,56 @@
 .section {
   background: #000;
-  padding: 40px 40px 60px;
-  max-width: 860px;
+  /* less side padding on the outer section; width is controlled by max-width */
+  padding: 28px 2rem 64px;
+
+  /* match FeatureCards */
+  max-width: 1050px;
   margin: 0 auto;
 }
 
 .title {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 20px;
+  margin: 0 0 18px;
 }
 
 .list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 2px;
+
+  /* Netflix FAQ has very tight separation */
+  gap: 8px;
 }
 
 .item {
   background: #2d2d2d;
 }
 
-/* question row — full-width button */
 .question {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px;
+
+  /* bigger “card” */
+  padding: 26px 24px;
+
   background: #2d2d2d;
   color: #fff;
-  font-size: 18px;
-  font-weight: 400;
+
+  font-size: 20px;
+  font-weight: 500;
   font-family: inherit;
+
   text-align: left;
   cursor: pointer;
   border: none;
-  border-bottom: 2px solid #000;
+
   transition: background 0.2s;
 }
 
@@ -46,13 +58,12 @@
   background: #3d3d3d;
 }
 
-/* + icon that rotates to × when open */
 .icon {
-  font-size: 30px;
+  font-size: 40px; /* larger + like the reference */
   font-weight: 300;
   flex-shrink: 0;
   margin-left: 16px;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
   line-height: 1;
 }
 
@@ -60,28 +71,46 @@
   transform: rotate(45deg);
 }
 
-/* answer panel */
 .answer {
-  padding: 18px 20px;
+  padding: 22px 24px 26px;
   background: #2d2d2d;
   color: #fff;
-  font-size: 17px;
+
+  font-size: 18px;
   line-height: 1.6;
+
   border-top: 2px solid #000;
 }
 
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 1024px) {
   .section {
-    padding: 30px 20px 40px;
+    max-width: 900px; /* match FeatureCards tablet width */
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .section {
+    max-width: 560px; /* match FeatureCards mobile width */
+    padding: 24px 1.25rem 48px;
+  }
+
+  .title {
+    font-size: 20px;
   }
 
   .question {
+    padding: 18px 16px;
     font-size: 16px;
-    padding: 14px 16px;
+  }
+
+  .icon {
+    font-size: 32px;
   }
 
   .answer {
+    padding: 16px;
     font-size: 15px;
-    padding: 14px 16px;
   }
 }

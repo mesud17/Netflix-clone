@@ -1,0 +1,137 @@
+.footer {
+    background: #000;
+    color: #b3b3b3;
+    padding: 56px 0 40px;
+    margin-bottom: 80px;
+    font-size: 15px;
+
+  }
+  
+  .container {
+    width: min(1000px, calc(100% - 4rem)); /* match your FeatureCards/FAQ width vibe */
+    margin: 0 auto;
+  }
+  
+  .topLine {
+    margin: 0 0 28px;
+    color: #b3b3b3;
+  }
+  
+  .phone {
+    color: #b3b3b3;
+    text-decoration: underline;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px 32px; /* rows / cols */
+    margin: 0 0 26px;
+  }
+  
+  .col {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .item {
+    margin: 10px 0;
+  }
+  
+  .link {
+    color: #b3b3b3;
+    text-decoration: underline;
+    line-height: 1.4;
+  }
+  
+  .link:hover {
+    color: #d6d6d6;
+  }
+  
+  .controls {
+    margin: 18px 0 18px;
+  }
+  
+  .langWrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+  
+    padding: 10px 12px;
+    position: relative;
+    margin: 17px auto;
+
+  }
+  
+  .langIcon {
+    color: #fff;
+    opacity: 0.85;
+    font-size: 14px;
+  }
+  
+  .select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    padding-right: 18px; /* room for caret */
+    cursor: pointer;
+  }
+  
+  .caret {
+    color: #fff;
+    opacity: 0.8;
+    font-size: 15px;
+    pointer-events: none;
+    margin-left: -6px;
+  }
+  
+  .region {
+    margin: 14px 0 0;
+    font-size: 15px;
+    color: #b3b3b3;
+  }
+  
+  .captcha {
+    margin: 22px 0 0;
+    font-size: 13px;
+    color: #8c8c8c;
+  }
+  
+  /* Tablet */
+  @media (max-width: 900px) {
+    .container {
+      width: min(900px, calc(100% - 3rem));
+    }
+  
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 26px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 560px) {
+    .container {
+      width: calc(100% - 2rem);
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  
+    .item {
+      margin: 8px 0;
+    }
+  }
