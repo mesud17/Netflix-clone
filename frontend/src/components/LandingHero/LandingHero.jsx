@@ -1,11 +1,11 @@
-import styles from "./Hero.module.css";
+import styles from "./LandingHero.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import LandingNavbar from "../LandingNavbar/LandingNavbar";
 import { useNavigate } from "react-router-dom";
 
-const HeroSection = () => {
+const LandingHero = () => {
   const [movies, setMovies] = useState([]);
   const [currentMovie, setCurrentMovie] = useState(0);
   const navigate = useNavigate();
@@ -78,4 +78,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default LandingHero;
