@@ -1,192 +1,134 @@
-import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, Bell, ChevronDown, User } from "lucide-react";
-import "./HomeNavbar.css";
-import NetflixLogo from "../../assets/images/Netflix-logo.png";
+import styles from "./HomeNavbar.module.css";
+import logo from "../../assets/images/Netflix-logo.png";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const NAV_LINKS = [
-  { label: "Home", to: "/home", active: true },
-  { label: "TV Shows", to: "#" },
-  { label: "Movies", to: "#" },
-  { label: "New & Popular", to: "#" },
-  { label: "My List", to: "#" },
-  { label: "Browse by Languages", to: "#" },
-];
-
-const ACCOUNT_MENU = [
-  { label: "Account", to: "/account" },
-  { label: "Help Center", to: "#" },
-  { type: "divider" },
-  { label: "Sign out", to: "/login" },
-];
-
-const HomeNavbar = () => {
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const searchWrapRef = useRef(null);
-  const inputRef = useRef(null);
-  const profileRef = useRef(null);
-
-  const openSearch = () => {
-    setSearchOpen(true);
-    requestAnimationFrame(() => inputRef.current?.focus());
-  };
-
-  const closeSearch = () => {
-    setSearchOpen(false);
-  };
-
-  const toggleSearch = () => {
-    if (searchOpen) closeSearch();
-    else openSearch();
-  };
-
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const closeMenu = () => setMenuOpen(false);
-
-  // Close search on click outside or Escape
-  useEffect(() => {
-    if (!searchOpen) return;
-
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") closeSearch();
-    };
-
-    const onPointerDown = (e) => {
-      if (!searchWrapRef.current?.contains(e.target)) closeSearch();
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("mousedown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("mousedown", onPointerDown);
-    };
-  }, [searchOpen]);
-
-  // Close account menu on click outside or Escape
-  useEffect(() => {
-    if (!menuOpen) return;
-
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") closeMenu();
-    };
-
-    const onPointerDown = (e) => {
-      if (!profileRef.current?.contains(e.target)) closeMenu();
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("mousedown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("mousedown", onPointerDown);
-    };
-  }, [menuOpen]);
+function HomeNavbar() {
+  const navigate = useNavigate();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+useEffect(()=>{
+  const handleScroll=()=>{
+    if(window.scrollY>50){
+      setIsScrolled(true)
+    }
+    else{
+      setIsScrolled(false)
+    }
+  }
+  window.addEventListener("scroll",handleScroll)
+  return()=>window.removeEventListener("scroll",handleScroll)
+},[])
 
   return (
-    <header className="home-navbar">
-      <div className="home-navbar__inner">
-        <div className="home-navbar__left">
-          <Link to="/home" className="home-navbar__logo" aria-label="Netflix Home">
-            <img src={NetflixLogo} alt="Netflix Logo" />
+    <header className={`${styles.navbar} ${isScrolled?styles.scroll:""}`}>
+      <div className={styles.inner}>
+        {/* Left: logo + nav */}
+        <div className={styles.left}>
+          <Link to="/home" className={styles.logo}>
+            <img src={logo} alt="Netflix" />
           </Link>
-
-          <ul className="home-navbar__links">
-            {NAV_LINKS.map(({ label, to, active }) => (
-              <li key={label}>
-                <Link
-                  to={to}
-                  className={`home-navbar__link ${active ? "home-navbar__link--active" : ""}`}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <nav className={styles.nav}>
+            <Link
+              to="/home"
+              className={`${styles.navLink} ${styles.navLinkActive}`}
+            >
+              Home
+            </Link>
+            <Link to="#" className={styles.navLink}>
+              TV Shows
+            </Link>
+            <Link to="#" className={styles.navLink}>
+              Movies
+            </Link>
+            <Link to="#" className={styles.navLink}>
+              New & Popular
+            </Link>
+            <Link to="#" className={styles.navLink}>
+              My List
+            </Link>
+            <Link to="#" className={styles.navLink}>
+              Browse by Languages
+            </Link>
+          </nav>
         </div>
 
-        <div className="home-navbar__right">
-          {/* Search toggle */}
-          <div
-            ref={searchWrapRef}
-            className={`home-navbar__search ${searchOpen ? "home-navbar__search--open" : ""}`}
+        {/* Right: icons + profile */}
+        <div className={styles.right}>
+          <button
+            type="button"
+            className={styles.iconBtn}
+            aria-label="Search"
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
           >
-            <button
-              type="button"
-              className="home-navbar__icon-btn home-navbar__search-btn"
-              aria-label={searchOpen ? "Close search" : "Open search"}
-              aria-expanded={searchOpen}
-              onClick={toggleSearch}
-            >
-              <Search size={22} strokeWidth={2} />
-            </button>
-
+            <Search size={22} strokeWidth={2} />
+          </button>
+          {isSearchOpen && (
             <input
-              ref={inputRef}
               type="text"
-              className="home-navbar__search-input"
               placeholder="Search"
-              aria-label="Search titles"
-              tabIndex={searchOpen ? 0 : -1}
+              className={styles.searchInput}
             />
-          </div>
+          )}
 
           <button
             type="button"
-            className="home-navbar__icon-btn home-navbar__icon-btn--bell"
+            className={`${styles.iconBtn} ${styles.bellBtn}`}
             aria-label="Notifications"
           >
             <Bell size={22} strokeWidth={2} />
-            <span className="home-navbar__badge" aria-hidden="true" />
+            <span className={styles.badge} aria-hidden="true" />
           </button>
-
           <div
-            ref={profileRef}
-            className={`home-navbar__profile-wrap ${menuOpen ? "home-navbar__profile-wrap--open" : ""}`}
+            className={`${styles.profileWrap} ${isProfileOpen ? styles.profileWrapOpen : ""}`}
           >
             <button
               type="button"
-              className="home-navbar__profile"
+              className={styles.profile}
               aria-label="Account menu"
-              aria-expanded={menuOpen}
-              aria-haspopup="true"
-              onClick={toggleMenu}
+              aria-expanded={isProfileOpen}
+              onClick={() => setIsProfileOpen(!isProfileOpen)}
             >
-              <span className="home-navbar__avatar">
+              <span className={styles.avatar}>
                 <User size={18} strokeWidth={2.2} />
               </span>
               <ChevronDown
                 size={18}
                 strokeWidth={2.5}
-                className="home-navbar__caret"
-                aria-hidden="true"
+                className={styles.caret}
               />
             </button>
 
-            {menuOpen && (
-              <div className="home-navbar__dropdown" role="menu">
-                <ul className="home-navbar__dropdown-list">
-                  {ACCOUNT_MENU.map((item) =>
-                    item.type === "divider" ? (
-                      <li key="divider" role="none">
-                        <hr className="home-navbar__dropdown-divider" />
-                      </li>
-                    ) : (
-                      <li key={item.label} role="none">
-                        <Link
-                          to={item.to}
-                          role="menuitem"
-                          className="home-navbar__dropdown-item"
-                          onClick={closeMenu}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    )
-                  )}
-                </ul>
+            {isProfileOpen && (
+              <div className={styles.profileMenu}>
+                <Link
+                  to="#"
+                  className={styles.profileItem}
+                  onClick={() => setIsProfileOpen(false)}
+                >
+                  Account
+                </Link>
+                <Link
+                  to="#"
+                  className={styles.profileItem}
+                  onClick={() => setIsProfileOpen(false)}
+                >
+                  Help Center
+                </Link>
+                <hr className={styles.profileDivider} />
+                <button
+                  type="button"
+                  className={styles.profileItem}
+                  onClick={() => {
+                    setIsProfileOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  Sign out
+                </button>
               </div>
             )}
           </div>
@@ -194,6 +136,6 @@ const HomeNavbar = () => {
       </div>
     </header>
   );
-};
+}
 
 export default HomeNavbar;

@@ -1,0 +1,150 @@
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 56.25vw;         
+  min-height: 400px;
+  max-height: 720px;
+  overflow: hidden;
+  background-color: #141414;
+
+  
+  background-image: url("../../assets/Resources/ImagesForInitialUse/image/banner.jpeg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* ── Left-side dark gradient so text stays legible ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0.0)  70%
+  );
+  z-index: 1;
+}
+
+/* ── Bottom fade that bleeds into the rows below ── */
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(20, 20, 20, 0.6) 60%,
+    rgba(20, 20, 20, 1)  100%
+  );
+  z-index: 2;
+}
+
+/* ── Content block ── */
+.content {
+  position: absolute;
+  bottom: 22%;
+  left: 4%;
+  z-index: 3;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Netflix logo above the title ── */
+.logo {
+  width: 150px;
+}
+
+/* ── Title ── */
+.title {
+ font-size: 3rem;
+ font-weight: 800;
+ padding-bottom: 0.3rem;
+}
+
+/* ── Description ── */
+.description {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.45;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  max-width: 440px;
+}
+
+/* ── Button row ── */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+/* ── Shared button base ── */
+.playBtn,
+.infoBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: black;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: white;
+}
+
+
+.playBtn:hover {
+    color: white;
+  background-color: rgba(51, 51, 51, 0.5);
+  transition: all 0.2s;
+}
+
+.infoBtn:hover {
+  color: white;
+  background-color: rgba(51, 51, 51, 0.5);
+  transition: all 0.2s;
+}
+
+@media (max-width: 768px) {
+  .content {
+    bottom: 16%;
+    max-width: 85%;
+    gap: 10px;
+  }
+
+  .description {
+    display: none; /* matches Netflix mobile behaviour */
+  }
+
+  .playBtn,
+  .infoBtn {
+    padding: 7px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 60px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+}
