@@ -4,9 +4,3 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}

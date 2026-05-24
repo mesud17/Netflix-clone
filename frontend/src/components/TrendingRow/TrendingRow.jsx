@@ -14,6 +14,7 @@ const TrendingRow = () => {
             import.meta.env.VITE_TMDB_API_KEY
           }`
         );
+        
         setMovies(res.data.results.slice(0, 10));
       } catch (error) {
         console.log(error);

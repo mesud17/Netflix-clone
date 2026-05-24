@@ -7,7 +7,6 @@ const FOOTER_LINKS = [
   ["Account", "Ways to Watch", "Corporate Information", "Only on Netflix"],
   ["Media Center", "Terms of Use", "Contact Us"],
 ];
-
 const LandingFooter = () => {
   return (
     <footer className={styles.footer}>

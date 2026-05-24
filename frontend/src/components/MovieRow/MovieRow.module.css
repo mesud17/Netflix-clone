@@ -1,0 +1,22 @@
+.row {
+    padding: 10px;
+  }
+  
+  .row__title {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .row__cards {
+    display: flex;
+    gap: 6px;
+    overflow-x: scroll;
+    overflow-y: visible;     /* ← allows hover panel to show vertically */
+    padding-bottom: 60px;   /* ← gives room for scaled card downward */
+    padding-top: 40px;
+  }
+  
+  .row__cards::-webkit-scrollbar {
+    display: none;
+  }

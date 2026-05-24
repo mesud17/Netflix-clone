@@ -1,0 +1,123 @@
+/* ── Card root ── */
+.card {
+    position: relative;
+    min-width: 200px;        /* ← bigger card */
+    height: 300px;           /* ← fixed height like netflix */
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+    margin-left: 2rem;
+  }
+  
+  /* ── Thumbnail ── */
+  .card__thumb {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* ← fills the card without stretching */
+    border-radius: 4px;
+    display: block;
+  }
+  
+  /* ── Hover panel ── */
+  .card__hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  
+    background: #181818;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+  
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  
+    z-index: 10;
+  }
+  
+  /* ── Show hover panel ── */
+  .card:hover .card__hover {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1.3);   /* ← pops out like netflix */
+  }
+  
+  .card__hover img {
+    width: 100%;
+    height: 140px;            /* ← preview image height */
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+    display: block;
+  }
+  
+  /* ── Badge ── */
+  .card__badge {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin: 8px 0 0 8px;
+  }
+  
+  /* ── Actions ── */
+  .card__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .card__actions-primary {
+    display: flex;
+    gap: 6px;
+  }
+  
+  /* ── Buttons ── */
+  .card__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .card__actions-secondary button{
+    padding-top: 3px;
+  }
+
+  .card__btn:hover {
+    background: #e0e0e0;
+  }
+  
+  /* ── Metadata ── */
+  .card__meta {
+    padding: 4px 8px 10px;
+  }
+  
+  .card__meta-info {
+    color: white;
+    font-size: 11px;
+    margin: 0 0 3px;
+  }
+  
+  .card__meta-genres {
+    color: #aaa;
+    font-size: 10px;
+    margin: 0;
+  }

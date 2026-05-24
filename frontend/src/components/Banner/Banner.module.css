@@ -1,15 +1,11 @@
-
-
 .banner {
   position: relative;
   width: 100%;
-  height: 56.25vw;         
+  height: 56.25vw;
   min-height: 400px;
   max-height: 720px;
   overflow: hidden;
   background-color: #141414;
-
-  
   background-image: url("../../assets/Resources/ImagesForInitialUse/image/banner.jpeg");
   background-size: cover;
   background-position: center top;
@@ -24,7 +20,7 @@
     to right,
     rgba(0, 0, 0, 0.75) 0%,
     rgba(0, 0, 0, 0.45) 40%,
-    rgba(0, 0, 0, 0.0)  70%
+    rgba(0, 0, 0, 0) 70%
   );
   z-index: 1;
 }
@@ -40,7 +36,7 @@
     to bottom,
     transparent 0%,
     rgba(20, 20, 20, 0.6) 60%,
-    rgba(20, 20, 20, 1)  100%
+    rgba(20, 20, 20, 1) 100%
   );
   z-index: 2;
 }
@@ -64,15 +60,16 @@
 
 /* ── Title ── */
 .title {
- font-size: 3rem;
- font-weight: 800;
- padding-bottom: 0.3rem;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
 }
 
 /* ── Description ── */
 .description {
   margin: 0;
-  font-size: 23px;
+  font-size: 17px;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.45;
@@ -109,9 +106,8 @@
   background-color: white;
 }
 
-
 .playBtn:hover {
-    color: white;
+  color: white;
   background-color: rgba(51, 51, 51, 0.5);
   transition: all 0.2s;
 }

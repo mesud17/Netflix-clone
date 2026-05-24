@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Four04 from "./pages/404/Four04";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="*" element={<Four04/>}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>
