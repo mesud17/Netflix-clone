@@ -2,7 +2,7 @@
 .card {
     position: relative;
     min-width: 200px;        /* ← bigger card */
-    height: 300px;           /* ← fixed height like netflix */
+    height: 200px;           /* ← fixed height like netflix */
     cursor: pointer;
     border-radius: 6px;
     transition: transform 0.3s ease;

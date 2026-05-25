@@ -1,4 +1,5 @@
 .hero {
+  background-image: url(../../assets/images/login.jpg);
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -8,7 +9,6 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  transition: background-image 1s ease-in-out;
 }
 
 .overlay {
@@ -66,10 +66,14 @@
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
+  transition: 0.5s;
 }
 .inputContainer button a{
 color: white;
 text-decoration: none;
+}
+.inputContainer button:hover{
+  opacity: 0.7;
 }
 
 /* ── Mobile portrait (up to 480px) ── */

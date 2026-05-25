@@ -8,9 +8,9 @@ const LandingNavbar = () => {
       <div className={styles.logo}>
         <img src={logo} alt="Netflex Logo" />
       </div>
-      <Link to="/login">
-        <button className={styles.signInBtn}>Sign In</button>
-      </Link>
+      <button className={styles.signInBtn}>
+        <Link to="/login">Sign In</Link>
+      </button>
     </nav>
   );
 };

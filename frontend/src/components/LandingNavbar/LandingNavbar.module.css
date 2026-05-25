@@ -15,7 +15,7 @@
 
 .signInBtn {
   background-color: #e50914;
-  color: white;
+ 
   margin-right: 63px;
   margin-top: -10px;
   border: none;
@@ -24,23 +24,31 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.5s;
+}
+.signInBtn a{
+  color: white;
+  text-decoration: none;
+}
+.signInBtn:hover{
+  opacity: 0.7;
 }
 
+
 /* ── Mobile landscape only ── */
-/* min-width catches landscape (wider), max-height catches it's still a small phone */
 @media (max-width: 481px) {
   .navbar {
-    padding: 6px 0;        /* less vertical padding — screen is short */
+    padding: 6px 0;       
   }
 
   .logo img {
-    height: 30px;          /* smaller logo — less vertical space */
-    margin-left: 20px;     /* tighter left margin */
+    height: 30px;         
+    margin-left: 20px;    
   }
 
   .signInBtn {
-    margin-right: 20px;    /* tighter right margin */
-    font-size: 0.85rem;    /* slightly smaller text */
-    padding: 6px 10px;     /* smaller button */
+    margin-right: 20px;   
+    font-size: 0.85rem;   
+    padding: 6px 10px;    
   }
 }
