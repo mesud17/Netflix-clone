@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
   });
   return userCredential;
 };
+
 //login function
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);

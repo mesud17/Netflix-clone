@@ -1,0 +1,70 @@
+.footer {
+    background-color: #141414;
+    padding: 40px 10%;        /* matches netflix left indent */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* ── Social icons row ── */
+  .footer__social {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .footer__icon {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .footer__icon:hover {
+    color: #aaa;
+  }
+  
+  /* ── 4 column links grid ── */
+  .footer__links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* ← 4 equal columns */
+    gap: 12px 20px;
+  }
+  
+  /* ── Each column ── */
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;                /* ← space between links */
+  }
+  
+  .footer__col a {
+    color: #aaa;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .footer__col a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* ── Copyright ── */
+  .footer__copy {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0;
+  }
+  
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .footer__links {
+      grid-template-columns: repeat(2, 1fr);  /* 2 columns on mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer__links {
+      grid-template-columns: 1fr;             /* 1 column on small screens */
+    }
+  }
